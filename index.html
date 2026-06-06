@@ -35,17 +35,21 @@
 
         <!-- Grille de tracts -->
         <div id="tracts-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- Exemple de carte - duplique et adapte -->
-            <div class="card bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-800" data-categories="abs_theo,atr_theo,islam,christ,judaism">
-                <div class="h-64 bg-zinc-800 flex items-center justify-center">
-                    <!-- preview du tract -->
-                    <img src="https://julflux.github.io/logicotracts/tracts/general/Tract-general-1.jpg" alt="Preview" class="max-h-full">
+            
+            <div class="card bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-800 flex flex-col" data-categories="abs_theo,atr_theo,islam,christ,judaism">
+                <!-- Image (fixe) -->
+                <div class="h-64 bg-zinc-800 flex items-center justify-center flex-shrink-0">
+                    <img src="https://julflux.github.io/logicotracts/tracts/general/Tract-general-1.jpg" alt="Preview" class="max-h-full object-contain">
                 </div>
-                <div class="p-6 text-center">
+                <!-- Contenu + boutons -->
+                <div class="p-6 flex flex-col flex-1">
                     <h3 class="text-2xl font-semibold mb-2">Dieu tout-puissant coincé dans un livre</h3>
-                    <p class="text-zinc-400 mb-6">Un Dieu tout-puissant n’utiliserait pas cette méthode ridicule d’un gourou pour finir coincé dans des vieux livres absurdes et violents.</p>
-                    <div class="flex gap-4">
-                        <a href="tracts/general/Tract-general-1.jpg" download
+                    <p class="text-zinc-400 mb-6 flex-1">
+                        Un Dieu tout-puissant n’utiliserait pas cette méthode ridicule d’un gourou pour finir coincé dans des vieux livres absurdes et violents.
+                    </p>         
+                    <!-- Boutons ancrés en bas -->
+                    <div class="flex gap-4 mt-auto">
+                        <a href="tracts/general/Tract-general-1.jpg" download 
                            class="flex-1 text-center bg-emerald-600 hover:bg-emerald-500 py-3 rounded-2xl font-medium">
                             📥 Télécharger
                         </a>
@@ -56,16 +60,21 @@
                     </div>
                 </div>
             </div>
-            <div class="card bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-800" data-categories="abs_theo,atr_theo,islam,christ,judaism">
-                <div class="h-64 bg-zinc-800 flex items-center justify-center">
-                    <!-- preview du tract -->
-                    <img src="https://julflux.github.io/logicotracts/tracts/general/Tract-general-miso-1.jpg" alt="Preview" class="max-h-full">
+
+            <div class="card bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-800 flex flex-col" data-categories="abs_theo,atr_theo,islam,christ,judaism">
+                <!-- Image (fixe) -->
+                <div class="h-64 bg-zinc-800 flex items-center justify-center flex-shrink-0">
+                    <img src="https://julflux.github.io/logicotracts/tracts/general/Tract-general-miso-1.jpg" alt="Preview" class="max-h-full object-contain">
                 </div>
-                <div class="p-6 text-center">
+                <!-- Contenu + boutons -->
+                <div class="p-6 flex flex-col flex-1">
                     <h3 class="text-2xl font-semibold mb-2">Misogynie au nom de Dieu</h3>
-                    <p class="text-zinc-400 mb-6">Un Dieu tout-puissant et miséricordieux qui exige des femmes qu'elles se soumettent aux hommes.</p>
-                    <div class="flex gap-4">
-                        <a href="tracts/general/Tract-general-miso-1.jpg" download
+                    <p class="text-zinc-400 mb-6 flex-1">
+                        Un Dieu tout-puissant et miséricordieux qui exige des femmes qu'elles se soumettent aux hommes.
+                    </p>         
+                    <!-- Boutons ancrés en bas -->
+                    <div class="flex gap-4 mt-auto">
+                        <a href="tracts/general/Tract-general-miso-1.jpg" download 
                            class="flex-1 text-center bg-emerald-600 hover:bg-emerald-500 py-3 rounded-2xl font-medium">
                             📥 Télécharger
                         </a>
@@ -76,7 +85,9 @@
                     </div>
                 </div>
             </div>
+
             <!-- Ajoute d'autres cartes ici -->
+            
         </div>
     </main>
 
