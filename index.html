@@ -1,20 +1,79 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" class="dark">
 <head>
     <meta charset="UTF-8">
-    <title>Tracts Critiques - Imprime et Diffuse la Vérité</title>
-    <style>body{font-family:Arial; margin:40px; line-height:1.6;}</style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tracts Athées • Raison contre Obscurantisme</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        body { font-family: system-ui, sans-serif; }
+        .card { transition: all 0.3s; }
+        .card:hover { transform: translateY(-8px); box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.3); }
+    </style>
 </head>
-<body>
-    <h1>Tracts Contre l’obscurantisme religieux</h1>
-    <p>Un Dieu tout-puissant n’utiliserait pas cette méthode ridicule d’un gourou pour finir coincé dans des vieux livres absurdes et violents.</p>
-    
-    <h2>Tracts disponibles :</h2>
-    <ul>
-        <li><a href="pdfs/general/Tract-general-1.jpg">Absurdités des religions Abrahamiques (JPG)</a></li>
-        <!-- Ajoute les autres ici -->
-    </ul>
-    
-    <p>Imprime, distribue, réveille les esprits.</p>
+<body class="bg-zinc-950 text-zinc-200 min-h-screen">
+    <header class="border-b border-zinc-800 py-8">
+        <div class="max-w-6xl mx-auto px-6 text-center">
+            <h1 class="text-5xl font-bold tracking-tight mb-3">TRACTS ATHÉES</h1>
+            <p class="text-xl text-zinc-400">Logique contre endoctrinement • Peur de l’enfer imaginaire • Textes médiévaux violents</p>
+            <p class="mt-4 text-sm text-emerald-400">Imprime. Diffuse. Libère les esprits.</p>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6 py-12">
+        <!-- Catégories -->
+        <div class="flex flex-wrap gap-4 mb-12 justify-center">
+            <button onclick="filterCategory('all')" class="category-btn active px-6 py-3 bg-zinc-900 hover:bg-zinc-800 rounded-xl">Tous</button>
+            <button onclick="filterCategory('theo')" class="category-btn px-6 py-3 bg-zinc-900 hover:bg-zinc-800 rounded-xl">Absurdités théologiques</button>
+            <button onclick="filterCategory('islam')" class="category-btn px-6 py-3 bg-zinc-900 hover:bg-zinc-800 rounded-xl">Critique de l’Islam</button>
+            <button onclick="filterCategory('science')" class="category-btn px-6 py-3 bg-zinc-900 hover:bg-zinc-800 rounded-xl">Science vs Foi</button>
+        </div>
+
+        <!-- Grille de tracts -->
+        <div id="tracts-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Exemple de carte - duplique et adapte -->
+            <div class="card bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-800" data-category="theo">
+                <div class="h-64 bg-zinc-800 flex items-center justify-center">
+                    <!-- Remplace par une image preview du tract -->
+                    <img src="https://via.placeholder.com/600x400/27272a/71717a?text=TRACT+1" alt="Preview" class="max-h-full">
+                </div>
+                <div class="p-6">
+                    <h3 class="text-2xl font-semibold mb-2">Dieu tout-puissant coincé dans un livre</h3>
+                    <p class="text-zinc-400 mb-6">Un Dieu tout-puissant n’utiliserait pas cette méthode ridicule d’un gourou pour finir coincé dans des vieux livres absurdes et violents.</p>
+                    <div class="flex gap-4">
+                        <a href="pdfs/general/Tract-general-1.jpg" target="_blank" 
+                           class="flex-1 text-center bg-emerald-600 hover:bg-emerald-500 py-3 rounded-2xl font-medium">
+                            📥 Télécharger PDF
+                        </a>
+                        <a href="pdfs/general/Tract-general-1.jpg" target="_blank" 
+                           class="flex-1 text-center border border-zinc-700 hover:bg-zinc-800 py-3 rounded-2xl">
+                            👁️ Voir
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- Ajoute d'autres cartes ici -->
+        </div>
+    </main>
+
+    <footer class="border-t border-zinc-800 py-8 text-center text-zinc-500 text-sm">
+        Site statique militant • Sources précises sur chaque tract • Contre la soumission et l’irrationnel
+    </footer>
+
+    <script>
+        function filterCategory(cat) {
+            document.querySelectorAll('.category-btn').forEach(btn => btn.classList.remove('active', 'bg-emerald-600'));
+            event.target.classList.add('active', 'bg-emerald-600');
+            
+            document.querySelectorAll('.card').forEach(card => {
+                if (cat === 'all' || card.dataset.category === cat) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+    </script>
 </body>
 </html>
