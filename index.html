@@ -36,7 +36,7 @@
         <!-- Grille de tracts -->
         <div id="tracts-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <!-- Exemple de carte - duplique et adapte -->
-            <div class="card bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-800" data-category="theo">
+            <div class="card bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-800" data-categories="abs_theo, atr_theo, islam, christ, judaism">
                 <div class="h-64 bg-zinc-800 flex items-center justify-center">
                     <!-- Remplace par une image preview du tract -->
                     <img src="https://julflux.github.io/logicotracts/pdfs/general/Tract-general-1.jpg" alt="Preview" class="max-h-full">
@@ -61,22 +61,29 @@
     </main>
 
     <footer class="border-t border-zinc-800 py-8 text-center text-zinc-500 text-sm">
-        Site statique militant • Sources précises sur chaque tract • Contre la soumission et l’irrationnel
+        Site statique militant • Sources précises • Contre la soumission et l’irrationnel
     </footer>
 
     <script>
         function filterCategory(cat) {
-            document.querySelectorAll('.category-btn').forEach(btn => btn.classList.remove('active', 'bg-emerald-600'));
-            event.target.classList.add('active', 'bg-emerald-600');
+        // Mise à jour visuelle des boutons
+        document.querySelectorAll('.category-btn').forEach(btn => {
+            btn.classList.remove('active', 'bg-emerald-600');
+            if ((cat === 'all' && btn.textContent === 'Tous') || btn.getAttribute('onclick').includes(`'${cat}'`)) {
+                btn.classList.add('active', 'bg-emerald-600');
+            }
+        });
+
+        document.querySelectorAll('.card').forEach(card => {
+            const categories = card.dataset.categories ? card.dataset.categories.split(',') : [];
             
-            document.querySelectorAll('.card').forEach(card => {
-                if (cat === 'all' || card.dataset.category === cat) {
-                    card.style.display = 'block';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-        }
+            if (cat === 'all' || categories.includes(cat)) {
+                card.style.display = 'block';
+            } else {
+                card.style.display = 'none';
+            }
+        });
+    }
     </script>
 </body>
 </html>
