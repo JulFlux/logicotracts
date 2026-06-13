@@ -140,5 +140,57 @@
             Page mise à jour régulièrement • Sources vérifiables • Contre la soumission et l’obscurantisme
         </div>
     </div>
+        <script>
+    async function loadSources() {
+        try {
+            const response = await fetch('sources.json');
+            if (!response.ok) throw new Error('Impossible de charger sources.json');
+            const allSources = await response.json();
+    
+            document.querySelectorAll('.tract-card[data-tract-tags]').forEach(card => {
+                const tractTags = card.dataset.tractTags
+                    .split(',')
+                    .map(t => t.trim().toLowerCase());
+    
+                const container = card.querySelector('.sources-list');
+                if (!container) return;
+    
+                // Filtrage intelligent (intersection de tags)
+                const relevantSources = allSources.filter(source =>
+                    source.tags && source.tags.some(tag =>
+                        tractTags.includes(tag.toLowerCase())
+                    )
+                );
+    
+                if (relevantSources.length === 0) {
+                    container.innerHTML = '<p class="text-zinc-400 text-sm">Aucune source supplémentaire pour ce tract.</p>';
+                    return;
+                }
+    
+                let html = `<h4 class="font-semibold text-lg mb-3 flex items-center gap-2">
+                                <i class="fas fa-link text-emerald-400"></i> Sources vérifiables
+                            </h4><ul class="space-y-1 text-sm">`;
+    
+                relevantSources.forEach(source => {
+                    html += `
+                        <li class="mb-1">
+                            <a href="${source.url}" target="_blank" 
+                               class="text-emerald-400 hover:underline">
+                                ${source.text}
+                            </a>
+                        </li>`;
+                });
+    
+                html += '</ul>';
+                container.innerHTML = html;
+            });
+        } catch (error) {
+            console.error('Erreur chargement sources :', error);
+        }
+    }
+    
+    // Lance le chargement une fois la page prête
+    document.addEventListener('DOMContentLoaded', loadSources);
+    </script>
 </body>
 </html>
