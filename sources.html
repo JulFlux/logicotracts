@@ -141,56 +141,79 @@
         </div>
     </div>
         <script>
-    async function loadSources() {
-        try {
-            const response = await fetch('sources.json');
-            if (!response.ok) throw new Error('Impossible de charger sources.json');
-            const allSources = await response.json();
-    
-            document.querySelectorAll('.tract-card[data-tract-tags]').forEach(card => {
-                const tractTags = card.dataset.tractTags
-                    .split(',')
-                    .map(t => t.trim().toLowerCase());
-    
-                const container = card.querySelector('.sources-list');
-                if (!container) return;
-    
-                // Filtrage intelligent (intersection de tags)
-                const relevantSources = allSources.filter(source =>
-                    source.tags && source.tags.some(tag =>
-                        tractTags.includes(tag.toLowerCase())
-                    )
-                );
-    
-                if (relevantSources.length === 0) {
-                    container.innerHTML = '<p class="text-zinc-400 text-sm">Aucune source supplémentaire pour ce tract.</p>';
-                    return;
-                }
-    
-                let html = `<h4 class="font-semibold text-lg mb-3 flex items-center gap-2">
-                                <i class="fas fa-link text-emerald-400"></i> Sources vérifiables
-                            </h4><ul class="space-y-1 text-sm">`;
-    
-                relevantSources.forEach(source => {
-                    html += `
-                        <li class="mb-1">
-                            <a href="${source.url}" target="_blank" 
-                               class="text-emerald-400 hover:underline">
-                                ${source.text}
-                            </a>
-                        </li>`;
+        async function loadSources() {
+            const containers = document.querySelectorAll('[data-tract-tags] .sources-list');
+            
+            if (containers.length === 0) {
+                console.warn('⚠️ Aucune carte avec data-tract-tags trouvée. Vérifie tes div.');
+                return;
+            }
+        
+            try {
+                const response = await fetch('sources.json');
+                if (!response.ok) throw new Error(`HTTP ${response.status} - fichier introuvable`);
+        
+                const allSources = await response.json();
+                console.log(`✅ ${allSources.length} sources chargées depuis sources.json`);
+        
+                const cards = document.querySelectorAll('[data-tract-tags]');
+                console.log(`📋 ${cards.length} cartes de tracts détectées`);
+        
+                cards.forEach(card => {
+                    const tractTagsStr = card.dataset.tractTags || '';
+                    const tractTags = tractTagsStr
+                        .split(',')
+                        .map(t => t.trim().toLowerCase())
+                        .filter(Boolean);
+        
+                    const container = card.querySelector('.sources-list');
+                    if (!container) return;
+        
+                    const relevantSources = allSources.filter(source =>
+                        Array.isArray(source.tags) &&
+                        source.tags.some(tag => tractTags.includes(String(tag).toLowerCase()))
+                    );
+        
+                    console.log(`   → Tags [${tractTags.join(', ')}] → ${relevantSources.length} source(s) trouvée(s)`);
+        
+                    let html = `
+                        <h4 class="font-semibold text-lg mb-3 flex items-center gap-2">
+                            <i class="fas fa-link text-emerald-400"></i> Sources vérifiables
+                        </h4>`;
+        
+                    if (relevantSources.length > 0) {
+                        html += '<ul class="space-y-1 text-sm">';
+                        relevantSources.forEach(source => {
+                            html += `
+                                <li class="mb-1">
+                                    <a href="${source.url || '#'}" target="_blank" 
+                                       class="text-emerald-400 hover:underline">
+                                        ${source.text}
+                                    </a>
+                                </li>`;
+                        });
+                        html += '</ul>';
+                    } else {
+                        html += `<p class="text-zinc-400 text-sm">Aucune source correspondante pour les tags de ce tract.</p>`;
+                    }
+        
+                    container.innerHTML = html;
                 });
-    
-                html += '</ul>';
-                container.innerHTML = html;
-            });
-        } catch (error) {
-            console.error('Erreur chargement sources :', error);
+        
+            } catch (err) {
+                console.error('❌ Erreur chargement sources.json :', err);
+                containers.forEach(c => {
+                    c.innerHTML = `
+                        <p class="text-red-400 text-sm">
+                            <strong>Erreur :</strong> impossible de charger <code>sources.json</code>.<br>
+                            Vérifie que le fichier est bien à la racine du site.<br>
+                            Si tu testes en local, utilise un serveur (ex: <code>python -m http.server</code>).
+                        </p>`;
+                });
+            }
         }
-    }
-    
-    // Lance le chargement une fois la page prête
-    document.addEventListener('DOMContentLoaded', loadSources);
+        
+        document.addEventListener('DOMContentLoaded', loadSources);
     </script>
 </body>
 </html>
