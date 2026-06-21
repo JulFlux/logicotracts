@@ -1,26 +1,53 @@
 [
   {
     "id": "bukhari-7012",
-    "text": "Sahih al-Bukhari 7012 – Le 'prophète' épouse Aïcha à 6 ans (et consomme le mariage à 9 ans).",
-    "url": "https://sunnah.com/bukhari:7012",
+    "text": "Sahih al-Bukhari 7012 – Momo épouse Aïcha à 6 ans (consommation du mariage à 9 ans).",
+    "links": [
+      {
+        "label": "Sunnah.com (anglais)",
+        "url": "https://sunnah.com/bukhari:7012"
+      },
+      {
+        "label": "Version française",
+        "url": "https://sunnah.com/bukhari:7012?lang=fr"
+      }
+    ],
     "tags": ["islam", "pedophilie"]
   },
+  
   {
     "id": "coran-4-34",
-    "text": "Coran 4:34 – « Les hommes sont supérieurs aux femmes… frappez-les si vous craignez leur désobéissance. »",
-    "url": "https://quran.com/4/34",
+    "text": "Coran 4:34 – Les hommes sont supérieurs aux femmes et peuvent les frapper en cas de désobéissance.",
+    "links": [
+      {
+        "label": "Coran (arabe + traductions)",
+        "url": "https://quran.com/fr/4/34"
+      }
+    ],
     "tags": ["islam", "misogynie", "violence"]
   },
+
   {
     "id": "coran-2-223",
     "text": "Coran 2:223 – « Vos femmes sont un champ de labour pour vous ; allez à votre champ comme vous le voulez. »",
-    "url": "https://quran.com/2/223",
+    "links": [
+      {
+        "label": "Coran (arabe + traductions)",
+        "url": "https://quran.com/fr/2/223"
+      }
+    ],
     "tags": ["islam", "misogynie"]
   },
+
   {
     "id": "coran-24-2",
     "text": "Coran 24:2 – Flagellation publique de 100 coups pour avoir fait l'amour hors mariage.",
-    "url": "https://quran.com/24/2",
-    "tags": ["islam", "violence", "absurde"]
-  }
+    "links": [
+      {
+        "label": "Coran (arabe + traductions)",
+        "url": "https://quran.com/fr/24/2"
+      }
+    ],
+    "tags": ["islam", "absurde", "violence"]
+  },
 ]
