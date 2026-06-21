@@ -22,6 +22,10 @@
       {
         "label": "Coran (arabe + traductions)",
         "url": "https://quran.com/fr/4/34"
+      },
+      {
+        "label": "Coran (arabe + traductions)",
+        "url": "https://www.coran-seul.com/index.php/verset?sourate=4&verset=34"
       }
     ],
     "tags": ["islam", "misogynie", "violence"]
@@ -34,6 +38,10 @@
       {
         "label": "Coran (arabe + traductions)",
         "url": "https://quran.com/fr/2/223"
+      },
+      {
+        "label": "Coran (arabe + traductions)",
+        "url": "https://www.coran-seul.com/index.php/verset?sourate=2&verset=223"
       }
     ],
     "tags": ["islam", "misogynie"]
@@ -46,6 +54,10 @@
       {
         "label": "Coran (arabe + traductions)",
         "url": "https://quran.com/fr/24/2"
+      },
+      {
+        "label": "Coran (arabe + traductions)",
+        "url": "https://www.coran-seul.com/index.php/verset?sourate=24&verset=2"
       }
     ],
     "tags": ["islam", "absurde", "violence"]
