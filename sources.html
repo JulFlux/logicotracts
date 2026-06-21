@@ -173,15 +173,61 @@
                 
                     console.log(`   → Tags [${tractTags.join(', ')}] → ${relevantSources.length} source(s)`);
                 
+                    const religionOrder = ['torah', 'bible', 'islam'];
+                    const tractReligions = religionOrder.filter(rel => tractTags.includes(rel));
+                
                     let html = `
                         <h4 class="font-semibold text-lg mb-3 flex items-center gap-2">
                             <i class="fas fa-link text-emerald-400"></i> Sources vérifiables
                         </h4>`;
                 
-                    if (relevantSources.length > 0) {
+                    if (relevantSources.length === 0) {
+                        html += `<p class="text-zinc-400 text-sm">Aucune source correspondante pour ce tract.</p>`;
+                    } 
+                    else if (tractReligions.length > 1) {
+                        // === MODE GROUPÉ (plusieurs religions) ===
+                        tractReligions.forEach(religion => {
+                            const groupSources = relevantSources.filter(source =>
+                                source.tags.some(tag => tag.toLowerCase() === religion)
+                            );
+                
+                            if (groupSources.length === 0) return;
+                
+                            const religionLabel = religion.charAt(0).toUpperCase() + religion.slice(1);
+                            html += `
+                                <h5 class="font-semibold text-emerald-300 mt-4 mb-2 flex items-center gap-2">
+                                    <i class="fas fa-book-open"></i> ${religionLabel}
+                                </h5>
+                                <ul class="space-y-3 text-sm pl-1">`;
+                
+                            groupSources.forEach(source => {
+                                // === Rendu résumé + liens multiples (comme avant) ===
+                                let linksHtml = '';
+                                if (source.links && source.links.length > 0) {
+                                    linksHtml = source.links.map(link => `
+                                        <a href="${link.url}" target="_blank" 
+                                           class="inline-flex items-center gap-1 text-xs text-emerald-400 hover:underline">
+                                            <i class="fas fa-external-link-alt"></i> ${link.label}
+                                        </a>
+                                    `).join('<span class="mx-1 text-zinc-600">•</span>');
+                                } else if (source.url) {
+                                    linksHtml = `<a href="${source.url}" target="_blank" class="text-xs text-emerald-400 hover:underline">Source originale</a>`;
+                                }
+                
+                                html += `
+                                    <li class="mb-1">
+                                        <div class="font-medium">${source.text}</div>
+                                        ${linksHtml ? `<div class="mt-1 flex flex-wrap gap-x-2 gap-y-1">${linksHtml}</div>` : ''}
+                                    </li>`;
+                            });
+                
+                            html += `</ul>`;
+                        });
+                    } 
+                    else {
+                        // === MODE PLAT (une seule religion ou aucune) ===
                         html += '<ul class="space-y-3 text-sm">';
                         relevantSources.forEach(source => {
-                            // Génération des liens
                             let linksHtml = '';
                             if (source.links && source.links.length > 0) {
                                 linksHtml = source.links.map(link => `
@@ -201,8 +247,6 @@
                                 </li>`;
                         });
                         html += '</ul>';
-                    } else {
-                        html += `<p class="text-zinc-400 text-sm">Aucune source correspondante pour ce tract.</p>`;
                     }
                 
                     container.innerHTML = html;
