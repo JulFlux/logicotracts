@@ -161,42 +161,50 @@
         
                 cards.forEach(card => {
                     const tractTagsStr = card.dataset.tractTags || '';
-                    const tractTags = tractTagsStr
-                        .split(',')
-                        .map(t => t.trim().toLowerCase())
-                        .filter(Boolean);
-        
+                    const tractTags = tractTagsStr.split(',').map(t => t.trim().toLowerCase()).filter(Boolean);
+                
                     const container = card.querySelector('.sources-list');
                     if (!container) return;
-        
+                
                     const relevantSources = allSources.filter(source =>
                         Array.isArray(source.tags) &&
                         source.tags.some(tag => tractTags.includes(String(tag).toLowerCase()))
                     );
-        
-                    console.log(`   → Tags [${tractTags.join(', ')}] → ${relevantSources.length} source(s) trouvée(s)`);
-        
+                
+                    console.log(`   → Tags [${tractTags.join(', ')}] → ${relevantSources.length} source(s)`);
+                
                     let html = `
                         <h4 class="font-semibold text-lg mb-3 flex items-center gap-2">
                             <i class="fas fa-link text-emerald-400"></i> Sources vérifiables
                         </h4>`;
-        
+                
                     if (relevantSources.length > 0) {
-                        html += '<ul class="space-y-1 text-sm">';
+                        html += '<ul class="space-y-3 text-sm">';
                         relevantSources.forEach(source => {
+                            // Génération des liens
+                            let linksHtml = '';
+                            if (source.links && source.links.length > 0) {
+                                linksHtml = source.links.map(link => `
+                                    <a href="${link.url}" target="_blank" 
+                                       class="inline-flex items-center gap-1 text-xs text-emerald-400 hover:underline">
+                                        <i class="fas fa-external-link-alt"></i> ${link.label}
+                                    </a>
+                                `).join('<span class="mx-1 text-zinc-600">•</span>');
+                            } else if (source.url) {
+                                linksHtml = `<a href="${source.url}" target="_blank" class="text-xs text-emerald-400 hover:underline">Source originale</a>`;
+                            }
+                
                             html += `
                                 <li class="mb-1">
-                                    <a href="${source.url || '#'}" target="_blank" 
-                                       class="text-emerald-400 hover:underline">
-                                        ${source.text}
-                                    </a>
+                                    <div class="font-medium">${source.text}</div>
+                                    ${linksHtml ? `<div class="mt-1 flex flex-wrap gap-x-2 gap-y-1">${linksHtml}</div>` : ''}
                                 </li>`;
                         });
                         html += '</ul>';
                     } else {
-                        html += `<p class="text-zinc-400 text-sm">Aucune source correspondante pour les tags de ce tract.</p>`;
+                        html += `<p class="text-zinc-400 text-sm">Aucune source correspondante pour ce tract.</p>`;
                     }
-        
+                
                     container.innerHTML = html;
                 });
         
