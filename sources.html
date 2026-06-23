@@ -167,7 +167,11 @@
                     if (!container) return;
                 
                     const relevantSources = allSources.filter(source =>
+                        source &&
                         Array.isArray(source.tags) &&
+                        source.tags.length > 0 &&
+                        source.text &&
+                        source.text.trim() !== '' &&
                         source.tags.some(tag => tractTags.includes(String(tag).toLowerCase()))
                     );
                 
