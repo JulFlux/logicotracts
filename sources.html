@@ -174,6 +174,12 @@
                     console.log(`   → Tags [${tractTags.join(', ')}] → ${relevantSources.length} source(s)`);
                 
                     const religionOrder = ['torah', 'bible', 'islam'];
+                    // Mapping des titres affichés (plus clairs et militants)
+                    const religionLabels = {
+                        'torah': 'Judaïsme',
+                        'bible': 'Christianisme',
+                        'islam': 'Islam'
+                    };
                     const tractReligions = religionOrder.filter(rel => tractTags.includes(rel));
                 
                     let html = `
@@ -192,10 +198,10 @@
                             );
                 
                             if (groupSources.length === 0) return;
-                
-                            const religionLabel = religion.charAt(0).toUpperCase() + religion.slice(1);
+
+                            const religionLabel = religionLabels[religion] || (religion.charAt(0).toUpperCase() + religion.slice(1));
                             html += `
-                                <h5 class="font-semibold text-emerald-300 mt-4 mb-2 flex items-center gap-2">
+                                <h5 class="font-bold text-lg text-emerald-300 mt-5 mb-2 pl-3 border-l-4 border-emerald-400 flex items-center gap-2">
                                     <i class="fas fa-book-open"></i> ${religionLabel}
                                 </h5>
                                 <ul class="space-y-3 text-sm pl-1">`;
