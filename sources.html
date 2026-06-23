@@ -79,7 +79,7 @@
 
         <!-- ==================== TRACT : Misogynie ==================== -->
         <div id="Tract-general-miso-1" class="mb-16 border border-zinc-800 rounded-3xl overflow-hidden bg-zinc-900 relative"
-            data-tract-tags="misogynie">
+            data-tract-tags="misogynie,torah,bible,islam">
             <!-- Preview + Boutons d'action -->
             <div class="bg-zinc-800 p-8 flex flex-col items-center">
                 <img src="tracts/general/Tract-general-miso-1.jpg" alt="Preview du tract" 
@@ -194,8 +194,8 @@
                     if (relevantSources.length === 0) {
                         html += `<p class="text-zinc-400 text-sm">Aucune source correspondante pour ce tract.</p>`;
                     } 
-                    else if (tractReligions.length > 0) {
-                        // === MODE GROUPÉ (1 religion ou plus) ===
+                    else if (tractReligions.length > 1) {
+                        // === MODE GROUPÉ (2 religions ou plus) ===
                         tractReligions.forEach(religion => {
                             const groupSources = relevantSources.filter(source =>
                                 source.tags.some(tag => tag.toLowerCase() === religion)
