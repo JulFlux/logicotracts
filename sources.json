@@ -1,6 +1,6 @@
 [
   {
-    "id": "------------------------------PEDOPHILIE------------------------------", "text": "", "links": [], "tags": []
+    "id": "------------------------------PEDOPHILIE------------------------------","text": "","links": [],"tags": []
   },
   {
     "id": "bukhari-7012",
@@ -16,6 +16,26 @@
       }
     ],
     "tags": ["islam", "pedophilie"]
+  },
+
+
+  {
+    "id": "------------------------------MISOGYNIE------------------------------","text": "","links": [],"tags": []
+  },
+  {
+    "id": "birkot ha-shahar",
+    "text": "Bénédiction matinale des hommes (Birkot ha-Shahar) – « Béni sois-Tu, Éternel notre Dieu, Roi de l’univers, qui ne m’as pas fait femme. » Récitée quotidiennement, elle exprime explicitement la gratitude masculine de ne pas appartenir au sexe inférieur.",
+    "links": [
+      {
+        "label": "journals.openedition.org",
+        "url": "https://journals.openedition.org/tsafon/10845"
+      },
+      {
+        "label": "yahadut.org",
+        "url": "https://yahadut.org/fr/obligations-de-lhomme-envers-dieu/priere-et-ordonnancement-de-la-journee/sommeil-nocturne-et-lever-a-laube/"
+      }
+    ],
+    "tags": ["torah", "misogynie"]
   },
   
   {
@@ -50,6 +70,10 @@
     "tags": ["islam", "misogynie"]
   },
 
+
+  {
+    "id": "------------------------------VIOLENCE------------------------------","text": "","links": [],"tags": []
+  },
   {
     "id": "coran-24-2",
     "text": "Coran 24:2 – Flagellation publique de 100 coups pour avoir fait l'amour hors mariage.",
