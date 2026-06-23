@@ -166,19 +166,23 @@
                     const container = card.querySelector('.sources-list');
                     if (!container) return;
                 
+                    // === NOUVEAU : on sépare religion et sujet ===
+                    const religionTags = ['torah', 'bible', 'islam'];
+                    const tractTopicTags = tractTags.filter(tag => !religionTags.includes(tag));
+                
                     const relevantSources = allSources.filter(source =>
                         source &&
                         Array.isArray(source.tags) &&
                         source.tags.length > 0 &&
                         source.text &&
                         source.text.trim() !== '' &&
-                        source.tags.some(tag => tractTags.includes(String(tag).toLowerCase()))
+                        source.tags.some(tag => tractTopicTags.includes(String(tag).toLowerCase()))   // ← seulement les tags de sujet
                     );
                 
-                    console.log(`   → Tags [${tractTags.join(', ')}] → ${relevantSources.length} source(s)`);
+                    console.log(`   → Tags sujet [${tractTopicTags.join(', ')}] → ${relevantSources.length} source(s)`);
                 
+                    // Le reste du code (religionOrder, religionLabels, tractReligions, etc.) reste exactement pareil
                     const religionOrder = ['torah', 'bible', 'islam'];
-                    // Mapping des titres affichés (plus clairs et militants)
                     const religionLabels = {
                         'torah': 'Judaïsme',
                         'bible': 'Christianisme',
