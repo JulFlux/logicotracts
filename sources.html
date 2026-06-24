@@ -141,81 +141,124 @@
         </div>
     </div>
         <script>
-        async function loadSources() {
-            const containers = document.querySelectorAll('[data-tract-tags] .sources-list');
+
+            function formatSourceText(text) {
+                if (!text) return '';
             
-            if (containers.length === 0) {
-                console.warn('⚠️ Aucune carte avec data-tract-tags trouvée. Vérifie tes div.');
-                return;
+                // On cherche le premier " – " ou " - " (en dash ou tiret simple)
+                const match = text.match(/^(.*?)( – | - )(.*)$/);
+            
+                if (match) {
+                    const reference = match[1].trim();
+                    const rest = match[3].trim();
+                    return `<span class="underline font-medium">${reference}</span> – ${rest}`;
+                }
+            
+                // Si pas de " – ", on retourne le texte tel quel
+                return text;
             }
-        
-            try {
-                const response = await fetch('sources.json');
-                if (!response.ok) throw new Error(`HTTP ${response.status} - fichier introuvable`);
-        
-                const allSources = await response.json();
-                console.log(`✅ ${allSources.length} sources chargées depuis sources.json`);
-        
-                const cards = document.querySelectorAll('[data-tract-tags]');
-                console.log(`📋 ${cards.length} cartes de tracts détectées`);
-        
-                cards.forEach(card => {
-                    const tractTagsStr = card.dataset.tractTags || '';
-                    const tractTags = tractTagsStr.split(',').map(t => t.trim().toLowerCase()).filter(Boolean);
+            
+            async function loadSources() {
+                const containers = document.querySelectorAll('[data-tract-tags] .sources-list');
                 
-                    const container = card.querySelector('.sources-list');
-                    if (!container) return;
-                
-                    // === NOUVEAU : on sépare religion et sujet ===
-                    const religionTags = ['torah', 'bible', 'islam'];
-                    const tractTopicTags = tractTags.filter(tag => !religionTags.includes(tag));
-                
-                    const relevantSources = allSources.filter(source =>
-                        source &&
-                        Array.isArray(source.tags) &&
-                        source.tags.length > 0 &&
-                        source.text &&
-                        source.text.trim() !== '' &&
-                        source.tags.some(tag => tractTopicTags.includes(String(tag).toLowerCase()))   // ← seulement les tags de sujet
-                    );
-                
-                    console.log(`   → Tags sujet [${tractTopicTags.join(', ')}] → ${relevantSources.length} source(s)`);
-                
-                    // Le reste du code (religionOrder, religionLabels, tractReligions, etc.) reste exactement pareil
-                    const religionOrder = ['torah', 'bible', 'islam'];
-                    const religionLabels = {
-                        'torah': 'Judaïsme',
-                        'bible': 'Christianisme',
-                        'islam': 'Islam'
-                    };
-                    const tractReligions = religionOrder.filter(rel => tractTags.includes(rel));
-                
-                    let html = `
-                        <h4 class="font-semibold text-lg mb-3 flex items-center gap-2">
-                            <i class="fas fa-link text-emerald-400"></i> Sources vérifiables
-                        </h4>`;
-                
-                    if (relevantSources.length === 0) {
-                        html += `<p class="text-zinc-400 text-sm">Aucune source correspondante pour ce tract.</p>`;
-                    } 
-                    else if (tractReligions.length > 1) {
-                        // === MODE GROUPÉ (2 religions ou plus) ===
-                        tractReligions.forEach(religion => {
-                            const groupSources = relevantSources.filter(source =>
-                                source.tags.some(tag => tag.toLowerCase() === religion)
-                            );
+                if (containers.length === 0) {
+                    console.warn('⚠️ Aucune carte avec data-tract-tags trouvée. Vérifie tes div.');
+                    return;
+                }
+            
+                try {
+                    const response = await fetch('sources.json');
+                    if (!response.ok) throw new Error(`HTTP ${response.status} - fichier introuvable`);
+            
+                    const allSources = await response.json();
+                    console.log(`✅ ${allSources.length} sources chargées depuis sources.json`);
+            
+                    const cards = document.querySelectorAll('[data-tract-tags]');
+                    console.log(`📋 ${cards.length} cartes de tracts détectées`);
+            
+                    cards.forEach(card => {
+                        const tractTagsStr = card.dataset.tractTags || '';
+                        const tractTags = tractTagsStr.split(',').map(t => t.trim().toLowerCase()).filter(Boolean);
                     
-                            if (groupSources.length === 0) return;
+                        const container = card.querySelector('.sources-list');
+                        if (!container) return;
                     
-                            const religionLabel = religionLabels[religion] || (religion.charAt(0).toUpperCase() + religion.slice(1));
+                        // === NOUVEAU : on sépare religion et sujet ===
+                        const religionTags = ['torah', 'bible', 'islam'];
+                        const tractTopicTags = tractTags.filter(tag => !religionTags.includes(tag));
                     
-                            html += `
-                                <h5 class="font-bold text-lg text-emerald-300 mt-5 mb-2 pl-3 border-l-4 border-emerald-400 flex items-center gap-2">
-                                    <i class="fas fa-book-open"></i> ${religionLabel}
-                                </h5>
-                                <ul class="space-y-3 text-sm pl-1">`;
+                        const relevantSources = allSources.filter(source =>
+                            source &&
+                            Array.isArray(source.tags) &&
+                            source.tags.length > 0 &&
+                            source.text &&
+                            source.text.trim() !== '' &&
+                            source.tags.some(tag => tractTopicTags.includes(String(tag).toLowerCase()))   // ← seulement les tags de sujet
+                        );
                     
-                            groupSources.forEach(source => {
+                        console.log(`   → Tags sujet [${tractTopicTags.join(', ')}] → ${relevantSources.length} source(s)`);
+                    
+                        // Le reste du code (religionOrder, religionLabels, tractReligions, etc.) reste exactement pareil
+                        const religionOrder = ['torah', 'bible', 'islam'];
+                        const religionLabels = {
+                            'torah': 'Judaïsme',
+                            'bible': 'Christianisme',
+                            'islam': 'Islam'
+                        };
+                        const tractReligions = religionOrder.filter(rel => tractTags.includes(rel));
+                    
+                        let html = `
+                            <h4 class="font-semibold text-lg mb-3 flex items-center gap-2">
+                                <i class="fas fa-link text-emerald-400"></i> Sources vérifiables
+                            </h4>`;
+                    
+                        if (relevantSources.length === 0) {
+                            html += `<p class="text-zinc-400 text-sm">Aucune source correspondante pour ce tract.</p>`;
+                        } 
+                        else if (tractReligions.length > 1) {
+                            // === MODE GROUPÉ (2 religions ou plus) ===
+                            tractReligions.forEach(religion => {
+                                const groupSources = relevantSources.filter(source =>
+                                    source.tags.some(tag => tag.toLowerCase() === religion)
+                                );
+                        
+                                if (groupSources.length === 0) return;
+                        
+                                const religionLabel = religionLabels[religion] || (religion.charAt(0).toUpperCase() + religion.slice(1));
+                        
+                                html += `
+                                    <h5 class="font-bold text-lg text-emerald-300 mt-5 mb-2 pl-3 border-l-4 border-emerald-400 flex items-center gap-2">
+                                        <i class="fas fa-book-open"></i> ${religionLabel}
+                                    </h5>
+                                    <ul class="space-y-3 text-sm pl-1">`;
+                        
+                                groupSources.forEach(source => {
+                                    let linksHtml = '';
+                                    if (source.links && source.links.length > 0) {
+                                        linksHtml = source.links.map(link => `
+                                            <a href="${link.url}" target="_blank" 
+                                               class="inline-flex items-center gap-1 text-xs text-emerald-400 hover:underline">
+                                                <i class="fas fa-external-link-alt"></i> ${link.label}
+                                            </a>
+                                        `).join('<span class="mx-1 text-zinc-600">•</span>');
+                                    } else if (source.url) {
+                                        linksHtml = `<a href="${source.url}" target="_blank" class="text-xs text-emerald-400 hover:underline">Source originale</a>`;
+                                    }
+                        
+                                    html += `
+                                        <li class="mb-1">
+                                            <div class="font-medium">${formatSourceText(source.text)}</div>
+                                            ${linksHtml ? `<div class="mt-1 flex flex-wrap gap-x-2 gap-y-1">${linksHtml}</div>` : ''}
+                                        </li>`;
+                                });
+                        
+                                html += `</ul>`;
+                            });
+                        } 
+                        else {
+                            // === MODE PLAT (aucun tag de religion) ===
+                            html += '<ul class="space-y-3 text-sm">';
+                            relevantSources.forEach(source => {
                                 let linksHtml = '';
                                 if (source.links && source.links.length > 0) {
                                     linksHtml = source.links.map(link => `
@@ -227,59 +270,33 @@
                                 } else if (source.url) {
                                     linksHtml = `<a href="${source.url}" target="_blank" class="text-xs text-emerald-400 hover:underline">Source originale</a>`;
                                 }
-                    
+                        
                                 html += `
                                     <li class="mb-1">
-                                        <div class="font-medium">${source.text}</div>
+                                        <div class="font-medium">${formatSourceText(source.text)}</div>
                                         ${linksHtml ? `<div class="mt-1 flex flex-wrap gap-x-2 gap-y-1">${linksHtml}</div>` : ''}
                                     </li>`;
                             });
+                            html += '</ul>';
+                        }
                     
-                            html += `</ul>`;
-                        });
-                    } 
-                    else {
-                        // === MODE PLAT (aucun tag de religion) ===
-                        html += '<ul class="space-y-3 text-sm">';
-                        relevantSources.forEach(source => {
-                            let linksHtml = '';
-                            if (source.links && source.links.length > 0) {
-                                linksHtml = source.links.map(link => `
-                                    <a href="${link.url}" target="_blank" 
-                                       class="inline-flex items-center gap-1 text-xs text-emerald-400 hover:underline">
-                                        <i class="fas fa-external-link-alt"></i> ${link.label}
-                                    </a>
-                                `).join('<span class="mx-1 text-zinc-600">•</span>');
-                            } else if (source.url) {
-                                linksHtml = `<a href="${source.url}" target="_blank" class="text-xs text-emerald-400 hover:underline">Source originale</a>`;
-                            }
-                    
-                            html += `
-                                <li class="mb-1">
-                                    <div class="font-medium">${source.text}</div>
-                                    ${linksHtml ? `<div class="mt-1 flex flex-wrap gap-x-2 gap-y-1">${linksHtml}</div>` : ''}
-                                </li>`;
-                        });
-                        html += '</ul>';
-                    }
-                
-                    container.innerHTML = html;
-                });
-        
-            } catch (err) {
-                console.error('❌ Erreur chargement sources.json :', err);
-                containers.forEach(c => {
-                    c.innerHTML = `
-                        <p class="text-red-400 text-sm">
-                            <strong>Erreur :</strong> impossible de charger <code>sources.json</code>.<br>
-                            Vérifie que le fichier est bien à la racine du site.<br>
-                            Si tu testes en local, utilise un serveur (ex: <code>python -m http.server</code>).
-                        </p>`;
-                });
+                        container.innerHTML = html;
+                    });
+            
+                } catch (err) {
+                    console.error('❌ Erreur chargement sources.json :', err);
+                    containers.forEach(c => {
+                        c.innerHTML = `
+                            <p class="text-red-400 text-sm">
+                                <strong>Erreur :</strong> impossible de charger <code>sources.json</code>.<br>
+                                Vérifie que le fichier est bien à la racine du site.<br>
+                                Si tu testes en local, utilise un serveur (ex: <code>python -m http.server</code>).
+                            </p>`;
+                    });
+                }
             }
-        }
-        
-        document.addEventListener('DOMContentLoaded', loadSources);
-    </script>
+            
+            document.addEventListener('DOMContentLoaded', loadSources);
+        </script>
 </body>
 </html>
