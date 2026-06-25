@@ -105,13 +105,29 @@
 
     <script>
         function filterCategory(cat) {
-        // Mise à jour visuelle des boutons
-        document.querySelectorAll('.category-btn').forEach(btn => {
-            btn.classList.remove('active', 'bg-emerald-600');
-            if ((cat === 'all' && btn.textContent === 'Tous') || btn.getAttribute('onclick').includes(`'${cat}'`)) {
-                btn.classList.add('active', 'bg-emerald-600');
-            }
-        });
+            // Mise à jour visuelle des boutons catégorie
+            document.querySelectorAll('.category-btn').forEach(btn => {
+                btn.classList.remove('active', 'bg-emerald-600');
+                if ((cat === 'all' && btn.textContent === 'Tous') || btn.getAttribute('onclick').includes(`'${cat}'`)) {
+                    btn.classList.add('active', 'bg-emerald-600');
+                }
+            });
+        
+            document.querySelectorAll('.card').forEach(card => {
+                const categories = card.dataset.categories 
+                    ? card.dataset.categories.split(',').map(c => c.trim()) 
+                    : [];
+        
+                const shouldShow = (cat === 'all' || categories.includes(cat));
+        
+                // Utilise la classe Tailwind "hidden" au lieu de style.display
+                if (shouldShow) {
+                    card.classList.remove('hidden');
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+        }
 
         document.querySelectorAll('.card').forEach(card => {
             const categories = card.dataset.categories ? card.dataset.categories.split(',') : [];
