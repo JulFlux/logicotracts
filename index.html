@@ -35,7 +35,8 @@
 
         <!-- Grille de tracts -->
         <div id="tracts-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            
+
+            <!-- -------------------------------TOUT-PUISSANT COINCÉ DANS UN LIVRE------------------------------- -->
             <div class="card bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-800 flex flex-col" data-categories="abs_theo,atr_theo,islam,christ,judaism">
                 <!-- Image (fixe) -->
                 <div class="h-64 bg-zinc-800 flex items-center justify-center flex-shrink-0">
@@ -65,6 +66,7 @@
                 </div>
             </div>
 
+            <!-- -------------------------------MISOGYNIE------------------------------- -->
             <div class="card bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-800 flex flex-col" data-categories="abs_theo,atr_theo,islam,christ,judaism">
                 <!-- Image (fixe) -->
                 <div class="h-64 bg-zinc-800 flex items-center justify-center flex-shrink-0">
@@ -121,17 +123,6 @@
                 }
             });
         }
-
-        document.querySelectorAll('.card').forEach(card => {
-            const categories = card.dataset.categories ? card.dataset.categories.split(',') : [];
-            
-            if (cat === 'all' || categories.includes(cat)) {
-                card.style.display = 'block';
-            } else {
-                card.style.display = 'none';
-            }
-        });
-    }
     </script>
 </body>
 </html>
