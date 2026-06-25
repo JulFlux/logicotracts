@@ -4,7 +4,7 @@
   },
   {
     "id": "bukhari-7012",
-    "text": "Sahih al-Bukhari 7012 – Momo épouse Aïcha à 6 ans (consommation du mariage à 9 ans).",
+    "text": "Sahih al-Bukhari 7012 - Momo épouse Aïcha à 6 ans (consommation du mariage à 9 ans).",
     "links": [
       {
         "label": "Sunnah.com (anglais)",
@@ -24,7 +24,7 @@
   },
   {
     "id": "birkot ha-shahar",
-    "text": "Bénédiction matinale des hommes (Birkot ha-Shahar) – « Béni sois-Tu, Éternel notre Dieu, Roi de l’univers, qui ne m’as pas fait femme. » Récitée quotidiennement, elle exprime explicitement la gratitude masculine de ne pas appartenir au sexe inférieur.",
+    "text": "Bénédiction matinale des hommes (Birkot ha-Shahar) - « Béni sois-Tu, Éternel notre Dieu, Roi de l’univers, qui ne m’as pas fait femme. » Récitée quotidiennement, elle exprime explicitement la gratitude masculine de ne pas appartenir au sexe inférieur.",
     "links": [
       {
         "label": "journals.openedition.org",
@@ -37,10 +37,54 @@
     ],
     "tags": ["torah", "misogynie"]
   },
+
+  {
+    "id": "tertullien",
+    "text": "Tertullien (Père de l’Église, ~200 apr. J.C., très influent) - « Tu es la porte du démon : tu es celle qui a brisé le sceau de l’arbre ; c’est toi qui la première as déserté la loi divine… »\n→ Toutes les femmes collectivement rendues responsables du mal originel et porteuses du péché. Misogynie pure.",
+    "links": [
+      {
+        "label": "tertullian.org",
+        "url": "https://www.tertullian.org/french/g3_10_de_cultu_feminarum1.htm"
+      },
+      {
+        "label": "fr.wikisource.org",
+        "url": "https://fr.wikisource.org/wiki/%C5%92uvres_compl%C3%A8tes_de_Tertullien/Genoud,_1852/De_l%E2%80%99Ornement_des_Femmes"
+      },
+      {
+        "label": "Le christianisme est-il misogyne ?",
+        "url": "https://www.albiblia.com/files/pdf/c61b2f875c28233d1bd300a0126bd796.pdf"
+      }
+    ],
+    "tags": ["bible", "misogynie"]
+  },
+
+  {
+    "id": "1timothée2:11-15",
+    "text": "1 Timothée 2: versets 11 à 15 - « Je ne permets pas à une femme d’enseigner, ni de dominer son mari ; mais qu’elle reste dans le calme. »",
+    "links": [
+      {
+        "label": "aelf.org/bible/1Tm/2",
+        "url": "https://www.aelf.org/bible/1Tm/2"
+      }
+    ],
+    "tags": ["bible", "misogynie"]
+  },
+  
+  {
+    "id": "1corinthiens14:35-35",
+    "text": "1 Corinthiens 14: versets 34 à 35 - « que les femmes gardent le silence dans les assemblées, car elles n’ont pas la permission de parler ; mais qu’elles restent dans la soumission, comme le dit la Loi. »\n→ Ces textes ont nourri des siècles de culpabilisation collective des femmes comme source du mal.",
+    "links": [
+      {
+        "label": "aelf.org/bible/1Co/14",
+        "url": "https://www.aelf.org/bible/1Co/14"
+      }
+    ],
+    "tags": ["bible", "misogynie"]
+  },
   
   {
     "id": "coran-4-34",
-    "text": "Coran 4:34 – Les hommes sont supérieurs aux femmes et peuvent les frapper en cas de désobéissance.",
+    "text": "Coran 4:34 - Les hommes sont supérieurs aux femmes et peuvent les frapper en cas de désobéissance.",
     "links": [
       {
         "label": "quran.com",
@@ -56,7 +100,7 @@
 
   {
     "id": "coran-2-223",
-    "text": "Coran 2:223 – « Vos femmes sont un champ de labour pour vous ; allez à votre champ comme vous le voulez. »",
+    "text": "Coran 2:223 - « Vos femmes sont un champ de labour pour vous ; allez à votre champ comme vous le voulez. »",
     "links": [
       {
         "label": "quran.com",
@@ -70,13 +114,29 @@
     "tags": ["islam", "misogynie"]
   },
 
+  {
+    "id": "al-Bukhari 2658-304",
+    "text": "Hadith Sahih al-Bukhari (ex. 2658 et 304) - « Les femmes sont déficientes en intelligence et en religion » + explication que leur témoignage vaut la moitié « à cause de la déficience de leur esprit »",
+    "links": [
+      {
+        "label": "Hadith Numero 2658",
+        "url": "https://sounah.com/fr/hadith/2465/"
+      },
+      {
+        "label": "Hadith Numero 304",
+        "url": "https://sounah.com/fr/hadith/327/"
+      }
+    ],
+    "tags": ["islam", "misogynie"]
+  },
+
 
   {
     "id": "------------------------------VIOLENCE------------------------------","text": "","links": [],"tags": []
   },
   {
     "id": "coran-24-2",
-    "text": "Coran 24:2 – Flagellation publique de 100 coups pour avoir fait l'amour hors mariage.",
+    "text": "Coran 24:2 - Flagellation publique de 100 coups pour avoir fait l'amour hors mariage.",
     "links": [
       {
         "label": "quran.com",
