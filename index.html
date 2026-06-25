@@ -105,22 +105,15 @@
 
     <script>
         function filterCategory(cat) {
-            // Mise à jour visuelle des boutons catégorie
-            document.querySelectorAll('.category-btn').forEach(btn => {
-                btn.classList.remove('active', 'bg-emerald-600');
-                if ((cat === 'all' && btn.textContent === 'Tous') || btn.getAttribute('onclick').includes(`'${cat}'`)) {
-                    btn.classList.add('active', 'bg-emerald-600');
-                }
-            });
-        
+            // Filtrage des cartes
             document.querySelectorAll('.card').forEach(card => {
-                const categories = card.dataset.categories 
-                    ? card.dataset.categories.split(',').map(c => c.trim()) 
-                    : [];
+                const categories = (card.dataset.categories || '')
+                    .split(',')
+                    .map(c => c.trim());
         
                 const shouldShow = (cat === 'all' || categories.includes(cat));
         
-                // Utilise la classe Tailwind "hidden" au lieu de style.display
+                // On utilise la classe Tailwind "hidden" (plus propre et fiable)
                 if (shouldShow) {
                     card.classList.remove('hidden');
                 } else {
