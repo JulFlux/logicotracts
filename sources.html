@@ -146,17 +146,23 @@
             function formatSourceText(text) {
                 if (!text) return '';
             
-                // On cherche le premier " – " ou " - " (en dash ou tiret simple)
-                const match = text.match(/^(.*?)( – | - )(.*)$/);
+                // On cherche la première occurrence de " - " ou " – " (avec espaces)
+                const match = text.match(/^(.*?)(?:\s*[-–]\s+)(.*)$/s);
+            
+                let formatted;
             
                 if (match) {
                     const reference = match[1].trim();
-                    const rest = match[3].trim();
-                    return `<span class="underline font-medium font-semibold">${reference}</span> – ${rest}`;
+                    const rest = match[2].trim();
+                    formatted = `<span class="underline font-medium">${reference}</span> – ${rest}`;
+                } else {
+                    formatted = text;
                 }
             
-                // Si pas de " – ", on retourne le texte tel quel
-                return text;
+                // Convertit les \n en <br> (retours à la ligne)
+                formatted = formatted.replace(/\\n/g, '<br>').replace(/\n/g, '<br>');
+            
+                return formatted;
             }
             
             async function loadSources() {
