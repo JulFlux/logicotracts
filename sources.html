@@ -190,13 +190,17 @@
                         const container = card.querySelector('.sources-list');
                         if (!container) return;
                     
+                        // Séparation claire : religion vs sujet
+                        const religionTags = ['torah', 'bible', 'islam'];
+                        const tractTopicTags = tractTags.filter(tag => !religionTags.includes(tag));
+                        
                         const relevantSources = allSources.filter(source =>
                             source &&
                             Array.isArray(source.tags) &&
                             source.tags.length > 0 &&
                             source.text &&
                             source.text.trim() !== '' &&
-                            source.tags.some(tag => tractTags.includes(String(tag).toLowerCase()))
+                            source.tags.some(tag => tractTopicTags.includes(String(tag).toLowerCase()))
                         );
                     
                         console.log(`   → Tags [${tractTags.join(', ')}] → ${relevantSources.length} source(s)`);
