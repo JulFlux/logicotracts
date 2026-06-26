@@ -37,6 +37,22 @@
     ],
     "tags": ["torah", "misogynie"]
   },
+  
+  {
+    "id": "genèse3:16",
+    "text": "Genèse 3:16 - Dieu dit: « Je multiplierai la peine de tes grossesses ; c’est dans la peine que tu enfanteras des fils. Ton désir te portera vers ton mari, et celui-ci dominera sur toi. »",
+    "links": [
+      {
+        "label": "aelf.org/bible/Gn/3",
+        "url": "https://www.aelf.org/bible/Gn/3"
+      },
+      {
+        "label": "saintebible.com/genesis/3-16",
+        "url": "https://saintebible.com/genesis/3-16.htm"
+      }
+    ],
+    "tags": ["torah", "bible", "misogynie"]
+  },
 
   {
     "id": "tertullien",
