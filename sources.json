@@ -56,7 +56,7 @@
 
   {
     "id": "tertullien",
-    "text": "Tertullien (Père de l’Église, ~200 apr. J.C., très influent) - « Tu es la porte du démon : tu es celle qui a brisé le sceau de l’arbre ; c’est toi qui la première as déserté la loi divine… »\n→ Toutes les femmes collectivement rendues responsables du mal originel et porteuses du péché. Misogynie pure.",
+    "text": "Tertullien (Père de l’Église, ~200 apr. J.C., très influent) - « Tu es la porte du démon : tu es celle qui a brisé le sceau de l’arbre ; c’est toi qui la première as déserté la loi divine… »\n→ Toutes les femmes collectivement rendues responsables du mal originel et porteuses du péché.",
     "links": [
       {
         "label": "tertullian.org",
@@ -116,7 +116,7 @@
 
   {
     "id": "coran-2-223",
-    "text": "Coran 2:223 - « Vos femmes sont un champ de labour pour vous ; allez à votre champ comme vous le voulez. »",
+    "text": "Coran 2:223 - « Vos femmes sont un champ de labour pour vous ; allez à votre champ comme vous le voulez. »\n→ Le nom de la sourate est Al-Baqarah, La Vache..",
     "links": [
       {
         "label": "quran.com",
@@ -125,6 +125,22 @@
       {
         "label": "coran-seul.com",
         "url": "https://www.coran-seul.com/index.php/verset?sourate=2&verset=223"
+      }
+    ],
+    "tags": ["islam", "misogynie"]
+  },
+
+  {
+    "id": "coran-2-282",
+    "text": "Coran 2:282 - Le témoignage d’une femme vaut la moitié de celui d’un homme… « de sorte que si l’une d’elles s’égare, l’autre puisse lui rappeler »\n→ Le nom de la sourate est Al-Baqarah, La Vache..",
+    "links": [
+      {
+        "label": "quran.com",
+        "url": "https://quran.com/fr/2/282"
+      },
+      {
+        "label": "coran-seul.com",
+        "url": "https://www.coran-seul.com/index.php/verset?sourate=2&verset=282"
       }
     ],
     "tags": ["islam", "misogynie"]
