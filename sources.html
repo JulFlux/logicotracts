@@ -110,8 +110,8 @@
                      <!-- Sources -->
                     <!-- Contenu texte du tract -->
                     <div class="p-8">
-                        <h2 class="font-semibold text-2xl mb-4 mt-2 text-emerald-300">Misogynie et textes sacrés</h2>
-                        <p class="font-semibold text-xl mb-4 flex items-center gap-2 text-saphir-300">Textes talmudiques, bibliques et coraniques qui ont légitimé la soumission des femmes</p>
+                        <h2 class="font-semibold text-2xl mb-4 mt-2">Misogynie et textes sacrés</h2>
+                        <p class="font-semibold text-xl mb-4 flex items-center gap-2 text-emerald-300">Textes talmudiques, bibliques et coraniques qui ont légitimé la soumission des femmes</p>
                 
                         <!-- Sources injectées automatiquement ici -->
                         <div class="sources-list"></div>
@@ -221,8 +221,8 @@
                         const tractReligions = religionOrder.filter(rel => tractTags.includes(rel));
                     
                         let html = `
-                            <h4 class="font-semibold text-xl mb-4 flex items-center gap-2 text-emerald-300">
-                                <i class="fas fa-link"></i> Sources Vérifiables:
+                            <h4 class="font-semibold text-xl mb-4 flex items-center gap-2 text-blue-400">
+                                <i class="fas fa-link text-blue-400"></i> Sources Vérifiables:
                             </h4>`;
                     
                         if (relevantSources.length === 0) {
@@ -249,13 +249,13 @@
                                     if (source.links && source.links.length > 0) {
                                         linksHtml = source.links.map(link => `
                                             <a href="${link.url}" target="_blank" 
-                                               class="inline-flex items-center gap-1 px-3 py-1 text-xs bg-zinc-700 hover:bg-zinc-600 rounded-full text-emerald-400 hover:text-emerald-300 transition-colors">
+                                               class="inline-flex items-center gap-1 px-4 py-1.5 text-sm bg-zinc-800 hover:bg-zinc-700 border border-zinc-700 hover:border-blue-500 rounded-2xl text-blue-400 hover:text-blue-300 transition-all"
                                                 <i class="fas fa-external-link-alt"></i> ${link.label}
                                             </a>
                                         `).join('');
                                     } else if (source.url) {
                                         linksHtml = `<a href="${source.url}" target="_blank" 
-                                                       class="inline-flex items-center gap-1 px-3 py-1 text-xs bg-zinc-700 hover:bg-zinc-600 rounded-full text-emerald-400 hover:text-emerald-300 transition-colors">
+                                                       class="inline-flex items-center gap-1 px-4 py-1.5 text-sm bg-zinc-800 hover:bg-zinc-700 border border-zinc-700 hover:border-blue-500 rounded-2xl text-blue-400 hover:text-blue-300 transition-all"
                                                         <i class="fas fa-external-link-alt"></i> Source originale
                                                     </a>`;
                                     }
@@ -277,13 +277,13 @@
                                 if (source.links && source.links.length > 0) {
                                     linksHtml = source.links.map(link => `
                                         <a href="${link.url}" target="_blank" 
-                                           class="inline-flex items-center gap-1 px-3 py-1 text-xs bg-zinc-700 hover:bg-zinc-600 rounded-full text-emerald-400 hover:text-emerald-300 transition-colors">
+                                           class="inline-flex items-center gap-1 px-4 py-1.5 text-sm bg-zinc-800 hover:bg-zinc-700 border border-zinc-700 hover:border-blue-500 rounded-2xl text-blue-400 hover:text-blue-300 transition-all"
                                             <i class="fas fa-external-link-alt"></i> ${link.label}
                                         </a>
                                     `).join('');
                                 } else if (source.url) {
                                     linksHtml = `<a href="${source.url}" target="_blank" 
-                                                   class="inline-flex items-center gap-1 px-3 py-1 text-xs bg-zinc-700 hover:bg-zinc-600 rounded-full text-emerald-400 hover:text-emerald-300 transition-colors">
+                                                   class="inline-flex items-center gap-1 px-4 py-1.5 text-sm bg-zinc-800 hover:bg-zinc-700 border border-zinc-700 hover:border-blue-500 rounded-2xl text-blue-400 hover:text-blue-300 transition-all"
                                                     <i class="fas fa-external-link-alt"></i> Source originale
                                                 </a>`;
                                 }
