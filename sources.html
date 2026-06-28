@@ -218,11 +218,7 @@
                             'bible': 'Christianisme',
                             'islam': 'Islam'
                         };
-                        const religionColors = {
-                            'torah': 'amber-400',
-                            'bible': 'violet-400',
-                            'islam': 'teal-400'
-                        };
+                        
                         const tractReligions = religionOrder.filter(rel => tractTags.includes(rel));
                     
                         let html = `
@@ -243,8 +239,12 @@
                                 if (groupSources.length === 0) return;
                     
                                 const religionLabel = religionLabels[religion];
-                                const colorClass = religionColors[religion];
-                            
+
+                                let colorClass = '';
+                                if (religion === 'torah') colorClass = 'amber-400';
+                                else if (religion === 'bible') colorClass = 'violet-400';
+                                else (religion === 'islam') colorClass = 'teal-400';
+                                                    
                                 html += `
                                     <h5 class="font-bold text-xl ${colorClass} mt-7 mb-4 flex justify-center items-center gap-2">
                                         <i class="fas fa-book-open"></i> ${religionLabel}
