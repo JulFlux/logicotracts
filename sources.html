@@ -218,6 +218,11 @@
                             'bible': 'Christianisme',
                             'islam': 'Islam'
                         };
+                        const religionColors = {
+                            'torah': 'amber-400',
+                            'bible': 'violet-400',
+                            'islam': 'teal-400'
+                        };
                         const tractReligions = religionOrder.filter(rel => tractTags.includes(rel));
                     
                         let html = `
@@ -237,39 +242,41 @@
                     
                                 if (groupSources.length === 0) return;
                     
-                                const religionLabel = religionLabels[religion] || (religion.charAt(0).toUpperCase() + religion.slice(1));
-                    
+                                const religionLabel = religionLabels[religion];
+                                const colorClass = religionColors[religion];
+                            
                                 html += `
-                                    <h5 class="font-bold text-xl text-emerald-300 mt-7 mb-4 flex justify-center items-center gap-2">
+                                    <h5 class="font-bold text-xl ${colorClass} mt-7 mb-4 flex justify-center items-center gap-2">
                                         <i class="fas fa-book-open"></i> ${religionLabel}
                                     </h5>`;
-                    
+                        
                                 groupSources.forEach(source => {
+                                    // === Rendu du bloc source (style carte) ===
                                     let linksHtml = '';
                                     if (source.links && source.links.length > 0) {
                                         linksHtml = source.links.map(link => `
                                             <a href="${link.url}" target="_blank" 
-                                               class="inline-flex items-center gap-1 px-4 py-1.5 text-sm bg-zinc-800 hover:bg-zinc-700 border border-zinc-700 hover:border-blue-500 rounded-2xl text-blue-400 hover:text-blue-300 transition-all"
+                                               class="inline-flex items-center gap-1 px-3 py-1 text-xs bg-zinc-700 hover:bg-zinc-600 rounded-full text-blue-400 hover:text-blue-300 transition-colors">
                                                 <i class="fas fa-external-link-alt"></i> ${link.label}
                                             </a>
                                         `).join('');
                                     } else if (source.url) {
                                         linksHtml = `<a href="${source.url}" target="_blank" 
-                                                       class="inline-flex items-center gap-1 px-4 py-1.5 text-sm bg-zinc-800 hover:bg-zinc-700 border border-zinc-700 hover:border-blue-500 rounded-2xl text-blue-400 hover:text-blue-300 transition-all"
+                                                       class="inline-flex items-center gap-1 px-3 py-1 text-xs bg-zinc-700 hover:bg-zinc-600 rounded-full text-blue-400 hover:text-blue-300 transition-colors">
                                                         <i class="fas fa-external-link-alt"></i> Source originale
                                                     </a>`;
                                     }
-                    
+                        
                                     html += `
                                         <div class="bg-zinc-800 rounded-2xl p-4 mb-3 border border-zinc-700 hover:border-zinc-600 transition-colors">
-                                            <div class="font-medium text-[15px] leading-relaxed mb-2">
+                                            <div class="font-medium text-base leading-relaxed mb-2">
                                                 ${formatSourceText(source.text)}
                                             </div>
                                             ${linksHtml ? `<div class="flex flex-wrap gap-2 mt-2">${linksHtml}</div>` : ''}
                                         </div>`;
                                 });
                             });
-                        } 
+                        }
                         else {
                             // === MODE PLAT (une seule religion ou aucune) ===
                             relevantSources.forEach(source => {
@@ -290,7 +297,7 @@
                     
                                 html += `
                                     <div class="bg-zinc-800 rounded-2xl p-4 mb-3 border border-zinc-700 hover:border-zinc-600 transition-colors">
-                                        <div class="font-medium text-[15px] leading-relaxed mb-2">
+                                        <div class="font-medium text-base leading-relaxed mb-2">
                                             ${formatSourceText(source.text)}
                                         </div>
                                         ${linksHtml ? `<div class="flex flex-wrap gap-2 mt-2">${linksHtml}</div>` : ''}
