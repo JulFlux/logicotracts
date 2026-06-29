@@ -201,10 +201,10 @@
                         const container = card.querySelector('.sources-list');
                         if (!container) return;
                     
-                        // Séparation claire : religion vs sujet
+                        // === Filtrage des sources (par tags de sujet uniquement) ===
                         const religionTags = ['torah', 'bible', 'islam'];
                         const tractTopicTags = tractTags.filter(tag => !religionTags.includes(tag));
-                        
+                    
                         const relevantSources = allSources.filter(source =>
                             source &&
                             Array.isArray(source.tags) &&
@@ -216,38 +216,47 @@
                     
                         console.log(`   → Tags [${tractTags.join(', ')}] → ${relevantSources.length} source(s)`);
                     
+                        // === Déclaration OBLIGATOIRE de html ===
+                        let html = `
+                            <h4 class="font-semibold text-xl mb-4 flex items-center gap-2 text-blue-400">
+                                <i class="fas fa-link"></i> Sources vérifiables
+                            </h4>`;
+                    
                         const religionOrder = ['torah', 'bible', 'islam'];
                         const religionLabels = {
                             'torah': 'Judaïsme',
                             'bible': 'Christianisme',
                             'islam': 'Islam'
                         };
-                        
                         const religionColors = {
-                            'torah': '#ff6b6b',   // Judaïsme (rouge corail)
-                            'bible': '#9b5de5',   // Christianisme
-                            'islam': '#f4a261'    // Islam (orangé)
+                            'torah': '#ff6b6b',
+                            'bible': '#9b5de5',
+                            'islam': '#f4a261'
                         };
-                        
+                    
                         const tractReligions = religionOrder.filter(rel => tractTags.includes(rel));
-                        
-                        if (tractReligions.length > 1) {
+                    
+                        if (relevantSources.length === 0) {
+                            html += `<p class="text-zinc-400 text-sm">Aucune source correspondante pour ce tract.</p>`;
+                        } 
+                        else if (tractReligions.length > 1) {
+                            // === MODE GROUPÉ (plusieurs religions) ===
                             tractReligions.forEach(religion => {
                                 const groupSources = relevantSources.filter(source =>
                                     source.tags.some(tag => tag.toLowerCase() === religion)
                                 );
-                        
+                    
                                 if (groupSources.length === 0) return;
-                        
+                    
                                 const religionLabel = religionLabels[religion];
                                 const color = religionColors[religion];
-                        
-                                let html = `
+                    
+                                html += `
                                     <h5 style="color: ${color};" 
                                         class="font-bold text-xl mt-7 mb-4 flex justify-center items-center gap-2">
                                         <i class="fas fa-book-open"></i> ${religionLabel}
                                     </h5>`;
-                        
+                    
                                 groupSources.forEach(source => {
                                     let linksHtml = '';
                                     if (source.links && source.links.length > 0) {
@@ -263,7 +272,7 @@
                                                         <i class="fas fa-external-link-alt"></i> Source originale
                                                     </a>`;
                                     }
-                        
+                    
                                     html += `
                                         <div class="bg-zinc-800 rounded-2xl p-4 mb-3 border border-zinc-700 hover:border-zinc-600 transition-colors">
                                             <div class="font-medium text-base leading-relaxed mb-2">
@@ -273,21 +282,21 @@
                                         </div>`;
                                 });
                             });
-                        }
+                        } 
                         else {
-                            // === MODE PLAT (une seule religion ou aucune) ===
+                            // === MODE PLAT ===
                             relevantSources.forEach(source => {
                                 let linksHtml = '';
                                 if (source.links && source.links.length > 0) {
                                     linksHtml = source.links.map(link => `
                                         <a href="${link.url}" target="_blank" 
-                                           class="inline-flex items-center gap-1 px-4 py-1.5 text-sm bg-zinc-800 hover:bg-zinc-700 border border-zinc-700 hover:border-blue-500 rounded-2xl text-blue-400 hover:text-blue-300 transition-all"
+                                           class="inline-flex items-center gap-1 px-3 py-1 text-xs bg-zinc-700 hover:bg-zinc-600 rounded-full text-blue-400 hover:text-blue-300 transition-colors">
                                             <i class="fas fa-external-link-alt"></i> ${link.label}
                                         </a>
                                     `).join('');
                                 } else if (source.url) {
                                     linksHtml = `<a href="${source.url}" target="_blank" 
-                                                   class="inline-flex items-center gap-1 px-4 py-1.5 text-sm bg-zinc-800 hover:bg-zinc-700 border border-zinc-700 hover:border-blue-500 rounded-2xl text-blue-400 hover:text-blue-300 transition-all"
+                                                   class="inline-flex items-center gap-1 px-3 py-1 text-xs bg-zinc-700 hover:bg-zinc-600 rounded-full text-blue-400 hover:text-blue-300 transition-colors">
                                                     <i class="fas fa-external-link-alt"></i> Source originale
                                                 </a>`;
                                 }
