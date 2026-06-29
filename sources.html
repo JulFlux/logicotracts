@@ -150,10 +150,9 @@
     </div>
         <script>
 
-            function formatSourceText(text) {
+            function formatSourceText(text, color = null) {
                 if (!text) return '';
             
-                // On cherche la première occurrence de " - " ou " – " (avec espaces)
                 const match = text.match(/^(.*?)(?:\s*[-–]\s+)(.*)$/s);
             
                 let formatted;
@@ -161,12 +160,17 @@
                 if (match) {
                     const reference = match[1].trim();
                     const rest = match[2].trim();
-                    formatted = `<span class="underline font-medium font-semibold">${reference}</span> – ${rest}`;
+            
+                    if (color) {
+                        formatted = `<span style="color: ${color}" class="underline font-medium">${reference}</span> – ${rest}`;
+                    } else {
+                        formatted = `<span class="underline font-medium">${reference}</span> – ${rest}`;
+                    }
                 } else {
                     formatted = text;
                 }
             
-                // Convertit les \n en <br> (retours à la ligne)
+                // Gère les retours à la ligne
                 formatted = formatted.replace(/\\n/g, '<br>').replace(/\n/g, '<br>');
             
                 return formatted;
@@ -219,31 +223,24 @@
                             'islam': 'Islam'
                         };
                         
+                        const religionColors = {
+                            'torah': '#ff6b6b',   // Judaïsme (rouge corail)
+                            'bible': '#9b5de5',   // Christianisme
+                            'islam': '#f4a261'    // Islam (orangé)
+                        };
+                        
                         const tractReligions = religionOrder.filter(rel => tractTags.includes(rel));
-                    
-                        let html = `
-                            <h4 class="font-semibold text-xl mb-4 flex items-center gap-2 text-blue-400">
-                                <i class="fas fa-link text-blue-400"></i> Sources Vérifiables:
-                            </h4>`;
-                    
-                        if (relevantSources.length === 0) {
-                            html += `<p class="text-zinc-400 text-sm">Aucune source correspondante pour ce tract.</p>`;
-                        } 
-                        else if (tractReligions.length > 1) {
-                            // === MODE GROUPÉ (plusieurs religions) ===
+                        
+                        if (tractReligions.length > 1) {
                             tractReligions.forEach(religion => {
                                 const groupSources = relevantSources.filter(source =>
                                     source.tags.some(tag => tag.toLowerCase() === religion)
                                 );
-                    
+                        
                                 if (groupSources.length === 0) return;
-                    
+                        
                                 const religionLabel = religionLabels[religion];
-
-                                let color = '';
-                                if (religion === 'torah') color = '#ff6b6b';      // Judaïsme (amber)
-                                else if (religion === 'bible') color = '#9b5de5'; // Christianisme (orange)
-                                else color = '#f4a261'; // Islam (orange-rouge)
+                                const color = religionColors[religion];
                         
                                 html += `
                                     <h5 style="color: ${color};" 
@@ -252,7 +249,6 @@
                                     </h5>`;
                         
                                 groupSources.forEach(source => {
-                                    // === Rendu du bloc source (style carte) ===
                                     let linksHtml = '';
                                     if (source.links && source.links.length > 0) {
                                         linksHtml = source.links.map(link => `
@@ -271,7 +267,7 @@
                                     html += `
                                         <div class="bg-zinc-800 rounded-2xl p-4 mb-3 border border-zinc-700 hover:border-zinc-600 transition-colors">
                                             <div class="font-medium text-base leading-relaxed mb-2">
-                                                ${formatSourceText(source.text)}
+                                                ${formatSourceText(source.text, color)}
                                             </div>
                                             ${linksHtml ? `<div class="flex flex-wrap gap-2 mt-2">${linksHtml}</div>` : ''}
                                         </div>`;
