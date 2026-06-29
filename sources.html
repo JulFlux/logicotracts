@@ -162,9 +162,9 @@
                     const rest = match[2].trim();
             
                     if (color) {
-                        formatted = `<span style="color: ${color}" class="underline font-medium">${reference}</span> – ${rest}`;
+                        formatted = `<span style="color: ${color}" class="underline font-bold">${reference}</span> – ${rest}`;
                     } else {
-                        formatted = `<span class="underline font-medium">${reference}</span> – ${rest}`;
+                        formatted = `<span class="underline font-semibold">${reference}</span> – ${rest}`;
                     }
                 } else {
                     formatted = text;
