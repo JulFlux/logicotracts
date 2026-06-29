@@ -262,7 +262,7 @@
                                     if (source.links && source.links.length > 0) {
                                         linksHtml = source.links.map(link => `
                                             <a href="${link.url}" target="_blank" 
-                                               class="inline-flex items-center gap-1 px-3 py-1 text-xs bg-zinc-700 hover:bg-zinc-600 rounded-full text-blue-400 hover:text-blue-300 transition-colors">
+                                               class="inline-flex items-center gap-1 px-3 py-1 text-xs bg-zinc-800 hover:bg-zinc-700 border border-zinc-700 hover:border-zinc-600 rounded-full text-blue-400 hover:text-blue-300 transition-colors"
                                                 <i class="fas fa-external-link-alt"></i> ${link.label}
                                             </a>
                                         `).join('');
@@ -290,7 +290,7 @@
                                 if (source.links && source.links.length > 0) {
                                     linksHtml = source.links.map(link => `
                                         <a href="${link.url}" target="_blank" 
-                                           class="inline-flex items-center gap-1 px-3 py-1 text-xs bg-zinc-700 hover:bg-zinc-600 rounded-full text-blue-400 hover:text-blue-300 transition-colors">
+                                           class="inline-flex items-center gap-1 px-3 py-1 text-xs bg-zinc-800 hover:bg-zinc-700 border border-zinc-700 hover:border-zinc-600 rounded-full text-blue-400 hover:text-blue-300 transition-colors"
                                             <i class="fas fa-external-link-alt"></i> ${link.label}
                                         </a>
                                     `).join('');
