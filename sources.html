@@ -240,13 +240,14 @@
                     
                                 const religionLabel = religionLabels[religion];
 
-                                let colorClass = '';
-                                if (religion === 'torah') colorClass = 'amber-400';
-                                else if (religion === 'bible') colorClass = 'violet-400';
-                                else colorClass = 'teal-400';
-                                                    
+                                let color = '';
+                                if (religion === 'torah') color = '#fbbf24';      // Judaïsme (amber)
+                                else if (religion === 'bible') color = '#a78bfa'; // Christianisme (violet)
+                                else if (religion === 'islam') color = '#2dd4bf'; // Islam (teal)
+                        
                                 html += `
-                                    <h5 class="font-bold text-xl ${colorClass} mt-7 mb-4 flex justify-center items-center gap-2">
+                                    <h5 style="color: ${color};" 
+                                        class="font-bold text-xl mt-7 mb-4 flex justify-center items-center gap-2">
                                         <i class="fas fa-book-open"></i> ${religionLabel}
                                     </h5>`;
                         
