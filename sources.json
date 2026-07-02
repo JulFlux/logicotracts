@@ -33,21 +33,69 @@
     ],
     "tags": ["torah", "misogynie"]
   },
-  
+
   {
-    "id": "genèse3:16",
+    "id": "genèse3:16torah",
+    "text": "Genèse 3:16 - Dieu dit: « J’aggraverai tes labeurs et ta grossesse; tu enfanteras avec douleur; la passion t’attirera, vers ton époux, et lui te dominera. »",
+    "links": [
+      {
+        "label": "sefaria.org Genèse 3:16",
+        "url": "https://www.sefaria.org/Genesis.3.16?lang=bi&aliyot=0"
+      },
+      {
+        "label": "torah-box.com Genèse 3:16",
+        "url": "https://www.torah-box.com/torah-pdf/torah/genese/3.html"
+      }
+    ],
+    "tags": ["torah", "misogynie"]
+  },
+
+  {
+    "id": "nombres5:11torah",
+    "text": "Nombres 5: versets 11 à 31 - Permet à un mari de forcer sa femme soupçonnée d’adultère à boire une mixture qui peut la tuer ou lui faire perdre son enfant, devant tout le peuple. Sans aucun rituel équivalent pour les hommes.",
+    "links": [
+      {
+        "label": "sefaria.org Nombres 5:11",
+        "url": "https://www.sefaria.org/Numbers.5.11?lang=bi&aliyot=0"
+      },
+      {
+        "label": "torah-box.com Nombres 5:11",
+        "url": "https://www.torah-box.com/torah-pdf/torah/nombres/5.html"
+      }
+    ],
+    "tags": ["torah", "misogynie"]
+  },
+
+  {
+    "id": "agounah",
+    "text": "L'Agounah (Enchainée) - Une femme dont le mari refuse le get (divorce religieux) reste « enchaînée » (agounah) et ne peut se remarier, situation qui n’affecte pas les hommes de la même façon.",
+    "links": [
+      {
+      "label": "sefaria.org Agounah",
+        "url": "https://www.sefaria.org/topics/agunah?tab=sources"
+      },
+      {
+        "label": "wikipedia.org Agounah",
+        "url": "https://fr.wikipedia.org/wiki/Agounah"
+      }
+    ],
+    "tags": ["torah", "misogynie"]
+  },
+
+  {
+    "id": "genèse3:16bible",
     "text": "Genèse 3:16 - Dieu dit: « Je multiplierai la peine de tes grossesses ; c’est dans la peine que tu enfanteras des fils. Ton désir te portera vers ton mari, et celui-ci dominera sur toi. »",
     "links": [
       {
-        "label": "aelf.org genèse 3:16",
+        "label": "aelf.org Genèse 3:16",
         "url": "https://www.aelf.org/bible/Gn/3"
       },
       {
-        "label": "saintebible.com genèse 3:16",
+        "label": "saintebible.com Genèse 3:16",
         "url": "https://saintebible.com/genesis/3-16.htm"
       }
     ],
-    "tags": ["torah", "bible", "misogynie"]
+    "tags": ["bible", "misogynie"]
   },
 
   {
