@@ -7,7 +7,7 @@
     "text": "Sahih al-Bukhari 7012 - Momo épouse Aïcha à 6 ans (consommation du mariage à 9 ans).",
     "links": [
       {
-        "label": "sunnah.com bukhari 7012",
+        "label": "sunnah.com Bukhari 7012",
         "url": "https://sunnah.com/bukhari:7012?lang=fr"
       }
     ],
@@ -123,7 +123,7 @@
     "text": "1 Timothée 2: versets 11 à 15 - « Je ne permets pas à une femme d’enseigner, ni de dominer son mari ; mais qu’elle reste dans le calme. »",
     "links": [
       {
-        "label": "aelf.org 1 timothée 2",
+        "label": "aelf.org 1 Timothée 2",
         "url": "https://www.aelf.org/bible/1Tm/2"
       }
     ],
@@ -135,7 +135,7 @@
     "text": "1 Corinthiens 14: versets 34 à 35 - « que les femmes gardent le silence dans les assemblées, car elles n’ont pas la permission de parler ; mais qu’elles restent dans la soumission, comme le dit la Loi. »\n→ Ces textes ont nourri des siècles de culpabilisation collective des femmes comme source du mal.",
     "links": [
       {
-        "label": "aelf.org 1 corinthiens 14",
+        "label": "aelf.org 1 Corinthiens 14",
         "url": "https://www.aelf.org/bible/1Co/14"
       }
     ],
@@ -195,11 +195,11 @@
     "text": "Hadith Sahih al-Bukhari (ex. 2658 et 304) - « Les femmes sont déficientes en intelligence et en religion » + explication que leur témoignage vaut la moitié « à cause de la déficience de leur esprit »",
     "links": [
       {
-        "label": "Hadith Numero 2658",
+        "label": "Hadith n°2658",
         "url": "https://sounah.com/fr/hadith/2465/"
       },
       {
-        "label": "Hadith Numero 304",
+        "label": "Hadith n°304",
         "url": "https://sounah.com/fr/hadith/327/"
       }
     ],
@@ -229,5 +229,36 @@
 
   {
     "id": "------------------------------ESCLAVAGE------------------------------","text": "","links": [],"tags": []
+  },
+  {
+    "id": "exode21torah",
+    "text": "Exode 21: verset 2 à 11 - Règles pour esclave hébreu : 6 ans, puis libre ; les enfants appartiennent au maître s'il a donné une femme à son esclave (la femme appartient au maître) ; fille vendue comme esclave sexuelle potentielle.",
+    "links": [
+      {
+        "label": "sefaria.org Exode 21",
+        "url": "https://www.sefaria.org/Exodus.21.2?lang=bi&aliyot=0"
+      },
+      {
+        "label": "torah-box.com Exode 21",
+        "url": "https://www.torah-box.com/torah-pdf/torah/exode/21.html"
+      }
+    ],
+    "tags": ["torah", "esclavage"]
+  },
+
+  {
+    "id": "levitique25torah",
+    "text": "Lévitique 25: versets 44 à 46 - « C’est des nations qui vous entourent que tu prendras ton esclave et ta servante qui t’appartiendront… Vous pourrez les garder comme esclaves pour toujours. Vous en ferez hériter vos fils après vous… »",
+    "links": [
+      {
+        "label": "sefaria.org Lévitique 25",
+        "url": "https://www.sefaria.org/Leviticus.25.44?lang=bi&aliyot=0"
+      },
+      {
+        "label": "torah-box.com Lévitique 25",
+        "url": "https://www.torah-box.com/torah-pdf/torah/levitique/25.html"
+      }
+    ],
+    "tags": ["torah", "esclavage"]
   }
 ]
