@@ -260,5 +260,37 @@
       }
     ],
     "tags": ["torah", "esclavage"]
+  },
+
+  {
+    "id": "colossiens3:22",
+    "text": "Colossiens 3:22 - « Esclaves, obéissez en toutes choses à vos maîtres… »",
+    "links": [
+      {
+        "label": "aelf.org Colossiens 3",
+        "url": "https://www.aelf.org/bible/Col/3"
+      },
+      {
+        "label": "saintebible.com Colossiens 3",
+        "url": "https://saintebible.com/colossians/3-22.htm"
+      }
+    ],
+    "tags": ["bible", "esclavage"]
+  },
+
+  {
+    "id": "ephesiens6:5",
+    "text": "Éphésiens 6:5 - « Vous, les esclaves, obéissez à vos maîtres d’ici-bas… »",
+    "links": [
+      {
+        "label": "aelf.org Éphésiens 6",
+        "url": "https://www.aelf.org/bible/Ep/6"
+      },
+      {
+        "label": "saintebible.com Éphésiens 6",
+        "url": "https://saintebible.com/ephesians/6-5.htm"
+      }
+    ],
+    "tags": ["bible", "esclavage"]
   }
 ]
