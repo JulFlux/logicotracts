@@ -292,5 +292,102 @@
       }
     ],
     "tags": ["bible", "esclavage"]
-  }
+  },
+
+  {
+    "id": "1timothée6:1-2",
+    "text": "1 Timothée 6: versets 1 à 2 - « Tous ceux qui sont sous le joug de l’esclavage doivent considérer leurs maîtres comme tout à fait dignes d’honneur… »",
+    "links": [
+      {
+        "label": "aelf.org 1 Timothée 6",
+        "url": "https://saintebible.com/1_timothy/6-1.htm"
+      },
+      {
+        "label": "saintebible.com 1 Timothée 6",
+        "url": "https://www.aelf.org/bible/1Tm/6"
+      }
+    ],
+    "tags": ["bible", "esclavage"]
+  },
+
+  {
+    "id": "tite2:9-10",
+    "text": "Tite 2: versets 9 à 10 - « Que les esclaves soient soumis à leur maître en toutes choses, qu’ils se rendent agréables, qu’ils ne soient pas contestataires,… »",
+    "links": [
+      {
+        "label": "aelf.org Tite 2",
+        "url": "https://saintebible.com/titus/2-9.htm"
+      },
+      {
+        "label": "saintebible.com Tite 2",
+        "url": "https://www.aelf.org/bible/Tt/2"
+      }
+    ],
+    "tags": ["bible", "esclavage"]
+  },
+
+  {
+    "id": "coran4:3",
+    "text": "Coran 4:3 - Permet jusqu’à 4 épouses ou « des esclaves que vous possédez »",
+    "links": [
+      {
+        "label": "quran.com/fr 4:3",
+        "url": "https://quran.com/fr/4?startingVerse=3"
+      },
+      {
+        "label": "coran-seul.com 4:3",
+        "url": "https://www.coran-seul.com/index.php/verset?sourate=4&verset=3"
+      }
+    ],
+    "tags": ["islam", "esclavage"]
+  },
+
+  {
+    "id": "coran4:24-25",
+    "text": "Coran 4: versets 24 à 25 - Relations interdites sauf avec esclaves « ..., sauf si elles sont vos esclaves en toute propriété »\n Puis « qui n'a pas les moyens pour épouser des femmes libres, eh bien une femme parmi celles de vos esclaves croyantes. »",
+    "links": [
+      {
+        "label": "quran.com/fr 4:24-25",
+        "url": "https://quran.com/fr/4?startingVerse=24"
+      },
+      {
+        "label": "coran-seul.com 4:24-25",
+        "url": "https://www.coran-seul.com/index.php/verset?sourate=4&verset=24"
+      }
+    ],
+    "tags": ["islam", "esclavage"]
+  },
+
+  {
+    "id": "coran23:5-6",
+    "text": "Coran 23: versets 5 à 6 - Chasteté sauf « avec leurs épouses ou les esclaves qu’ils possèdent »",
+    "links": [
+      {
+        "label": "quran.com/fr 23:5-6",
+        "url": "https://quran.com/fr/23?startingVerse=5"
+      },
+      {
+        "label": "coran-seul.com 23:5-6",
+        "url": "https://www.coran-seul.com/index.php/verset?sourate=23&verset=5"
+      }
+    ],
+    "tags": ["islam", "esclavage"]
+  },
+
+  {
+    "id": "coran24:33",
+    "text": "Coran 24:33 - Prostitution d'esclave: « Dans votre recherche des profits passagers de la vie présente, ne contraignez pas vos femmes esclaves à la prostitution, si elles veulent rester chastes. Si on les y contraint, Allah leur accordera Son pardon et Sa miséricorde. »\n→ Toléré pour le profit du maître. Étrangement Allah pardonne les victimes, et ne punit pas les exploiteurs..",
+    "links": [
+      {
+        "label": "quran.com/fr 24:33",
+        "url": "https://quran.com/fr/24?startingVerse=33"
+      },
+      {
+        "label": "coran-seul.com 24:33",
+        "url": "https://www.coran-seul.com/index.php/verset?sourate=24&verset=33"
+      }
+    ],
+    "tags": ["islam", "esclavage"]
+  },
+
 ]
