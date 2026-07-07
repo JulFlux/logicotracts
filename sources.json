@@ -159,7 +159,7 @@
   },
 
   {
-    "id": "coran-2-223",
+    "id": "coran2:223",
     "text": "Coran 2:223 - « Vos femmes sont un champ de labour pour vous ; allez à votre champ comme vous le voulez. »\n→ Le nom de la sourate est Al-Baqarah, La Vache..",
     "links": [
       {
@@ -175,7 +175,7 @@
   },
 
   {
-    "id": "coran-2-282",
+    "id": "coran2:282",
     "text": "Coran 2:282 - Le témoignage d’une femme vaut la moitié de celui d’un homme… « de sorte que si l’une d’elles s’égare, l’autre puisse lui rappeler »\n→ Le nom de la sourate est Al-Baqarah, La Vache..",
     "links": [
       {
@@ -191,7 +191,7 @@
   },
 
   {
-    "id": "al-Bukhari 2658-304",
+    "id": "bukhari-2658-304",
     "text": "Hadith Sahih al-Bukhari (ex. 2658 et 304) - « Les femmes sont déficientes en intelligence et en religion » + explication que leur témoignage vaut la moitié « à cause de la déficience de leur esprit »",
     "links": [
       {
@@ -211,7 +211,7 @@
     "id": "------------------------------VIOLENCE------------------------------","text": "","links": [],"tags": []
   },
   {
-    "id": "coran-24-2",
+    "id": "coran24:2",
     "text": "Coran 24:2 - Flagellation publique de 100 coups pour avoir fait l'amour hors mariage.",
     "links": [
       {
@@ -387,7 +387,51 @@
         "url": "https://www.coran-seul.com/index.php/verset?sourate=24&verset=33"
       }
     ],
+    "tags": ["islam", "esclavage", "absurde"]
+  },
+
+  {
+    "id": "muslim1668a",
+    "text": "Sahih Muslim 1668a - Le Prophète a tiré au sort pour libérer des esclaves déjà libres.., trad fr:\n« ‘Imran ben Husain a rapporté qu’une personne n’ayant d’autre propriété que ses six esclaves les a affranchis au moment de sa mort. Le Messager d’Allah les fit appeler et les divisa en trois sections, fit un tirage au sort, en libéra deux et garda les quatre autres dans la servitude ; le Prophète eut des paroles sévères (à l’égard du maître décédé). »",
+    "links": [
+      {
+        "label": "sunnah.com Muslim 1668a",
+        "url": "https://sunnah.com/muslim:1668a"
+      }
+    ],
+    "tags": ["islam", "esclavage", "absurde"]
+  },
+
+  {
+    "id": "muslim1602",
+    "text": "Sahih Muslim 1602 - le Prophète achète un esclave en payant avec deux esclaves noirs.., trad fr:\n« Un esclave est arrivé et a prêté allégeance à l’Apôtre d’Allah (ﷺ) lors de la migration ; il (le Saint Prophète) ne savait pas qu’il était un esclave. Puis son maître est venu et lui a demandé de le récupérer, sur quoi l’Apôtre d’Allah (ﷺ) a dit : Vendez-le-moi. Et il l’acheta pour deux esclaves noirs… »",
+    "links": [
+      {
+        "label": "sunnah.com Muslim 1602",
+        "url": "https://sunnah.com/muslim:1602"
+      }
+    ],
     "tags": ["islam", "esclavage"]
   },
+
+  {
+    "id": "bukhari2141-2403-2534",
+    "text": "Sahih Bukhari 2403 (2141 et 2534 similaires) - Un homme s'était engagé à affranchir son esclave après sa mort. Le Prophète (ﷺ) demanda : « Qui m'achètera cet esclave ? » Nu'aim ibn `Abdullah acheta l'esclave, et le Prophète (ﷺ) prit le prix de la vente et le remit à son propriétaire.",
+    "links": [
+      {
+        "label": "sunnah.com Bukhari 2403",
+        "url": "https://sunnah.com/bukhari:2403"
+      },
+      {
+        "label": "sunnah.com Bukhari 2141",
+        "url": "https://sunnah.com/bukhari:2141"
+      },
+      {
+        "label": "sunnah.com Bukhari 2534",
+        "url": "https://sunnah.com/bukhari:2534"
+      }
+    ],
+    "tags": ["islam", "esclavage"]
+  }
 
 ]
