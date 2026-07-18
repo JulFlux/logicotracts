@@ -396,5 +396,27 @@
             
             document.addEventListener('DOMContentLoaded', loadSources);
         </script>
+        <script>
+          function scrollToHash() {
+            if (!window.location.hash) return;
+        
+            const target = document.querySelector(window.location.hash);
+            if (!target) return;
+        
+            // Petit délai pour laisser le fetch et le layout se stabiliser (surtout mobile)
+            setTimeout(() => {
+              target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        
+              // Ajuste si tu as un header fixe (change la valeur selon la hauteur de ton nav)
+              // window.scrollBy(0, -70);
+            }, 120);
+          }
+        
+          // Au chargement initial (lien direct)
+          window.addEventListener('load', scrollToHash);
+        
+          // Si on change de hash plus tard dans la page
+          window.addEventListener('hashchange', scrollToHash);
+        </script>
 </body>
 </html>
