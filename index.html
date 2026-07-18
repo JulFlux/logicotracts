@@ -107,6 +107,41 @@
                 </div>
             </div>
 
+            <!-- -------------------------------ESCLAVAGE------------------------------- -->
+            <div class="card bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-800 flex flex-col" data-categories="abs_theo,atr_theo,islam,christ,judaism">
+                <!-- Image (fixe) -->
+                <div class="h-64 bg-zinc-800 flex items-center justify-center flex-shrink-0">
+                    <img src="https://julflux.github.io/logicotracts/tracts/general/Tract-general-escla-1.jpg" alt="Preview" class="max-h-full object-contain">
+                </div>
+                <!-- Contenu + boutons -->
+                <div class="p-6 flex flex-col flex-1">
+                    <h3 class="text-2xl font-semibold mb-2">Esclavage autorisé dans des textes sacrés</h3>
+                    <p class="text-zinc-400 mb-6 flex-1">
+                        Un Créateur tout-puissant qui, au lieu d’interdire l’esclavage de ses créatures, le réglemente et le légitime dans ses textes sacrés.
+                    </p>         
+                    <!-- Boutons ancrés en bas -->
+                    <div class="mt-auto">
+                        <!-- Ligne 1 : Télécharger + Voir -->
+                        <div class="flex gap-4 mb-3">
+                            <a href="tracts/general/Tract-general-escla-1.jpg" download
+                               class="flex-1 text-center border border-zinc-700 hover:bg-zinc-800 py-3 rounded-2xl">
+                                📥 Télécharger
+                            </a>
+                            <a href="tracts/general/Tract-general-escla-1.jpg" target="_blank"
+                               class="flex-1 text-center border border-zinc-700 hover:bg-zinc-800 py-3 rounded-2xl">
+                                Voir 👁️
+                            </a>
+                        </div>
+                    
+                        <!-- Ligne 2 : Sources détaillées (en dessous) -->
+                        <a href="sources.html#Tract-general-escla-1"
+                            class="mt-3 block text-center border border-zinc-700 hover:bg-zinc-800 py-3 rounded-2xl text-blue-400 hover:text-blue-300">
+                            Sources détaillées
+                        </a>
+                    </div>
+                </div>
+            </div>
+
             <!-- Ajoute d'autres cartes ici -->
             
         </div>
@@ -126,7 +161,7 @@
         
                 const shouldShow = (cat === 'all' || categories.includes(cat));
         
-                // On utilise la classe Tailwind "hidden" (plus propre et fiable)
+                // On utilise la classe Tailwind "hidden"
                 if (shouldShow) {
                     card.classList.remove('hidden');
                 } else {
